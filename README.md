@@ -1,129 +1,62 @@
-# ðŸ'¥ WlsBruteforce â€” Generator Kata Sandi Edukatif ðŸ”'
-*Ringan â€¢ Berbasis Generator â€¢ Lintas Platform*
+perbaiki 
+# 💥 WlsBruteforce: Educational Password Generator 🔑
 
-Modul Python yang sederhana dan portabel yang dirancang **untuk penelitian keamanan siber pendidikan**, menunjukkan cara kerja mekanika bruteforce menggunakan `itertools` Python dan **generator hemat memori**.
+A lightweight, portable Python module designed for **educational purposes** to demonstrate the mechanics of password bruteforcing using Python's built-in `itertools` library and powerful **generators**.
 
-<p align="kiri">
-  <img src="https://img.shields.io/badge/Python-3.6%2B-biru?style=untuk-lencana&logo=python&logoColor=putih" />
-  <img src="https://img.shields.io/badge/Lisensi-MIT-kuning?style=untuk-lencana" />
-  <img src="https://img.shields.io/github/stars/NamaPenggunaAnda/wlsbruteforce?style=untuk-lencana&warna=biru" />
-</p>
+[![Python Version](https://img.shields.io/badge/Python-3.6%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/YourUsername/wlsbruteforce?style=for-the-badge&color=blue)](https://github.com/YourUsername/wlsbruteforce/stargazers)
 
 ---
 
-## âœ¨ Fitur
+## ✨ Features & Purpose
 
-- **Bruteforce Berbasis Generator**  
-  Menggunakan `yield` Python untuk pembangkitan sesuai permintaan â€” tidak ada kehabisan memori.
+* **Generator-Based:** Uses Python's `yield` keyword for memory efficiency. Combinations are generated on-demand, not stored in memory.
+* **Universal Character Set:** Includes all lowercase letters (`a-z`), uppercase letters (`A-Z`), and digits (`0-9`).
+* **Cross-Platform:** Works flawlessly on Linux (Kali, Ubuntu, Debian), macOS, Windows, and Termux after `pip` installation.
 
-- **Set Karakter Lengkap**  
-  Termasuk huruf kecil (`aâ€“z`), huruf besar (`Aâ€“Z`), dan angka (`0â€“9`).
+> ⚠️ **Disclaimer:** This module is strictly intended for **educational and defensive security research**. Use it responsibly and ethically.
 
-- **Sangat Ringan**  
-  Python murni. Tanpa dependensi eksternal.
+## 📥 Installation
 
-**Kompatibel Lintas Platform**  
-  Berfungsi pada Linux, macOS, Windows, dan Android Termux.
+Install this package directly from GitHub using `pip`. This method automatically configures the Python path for system-wide access.
 
-> âš ï¸ **Penafian:** Modul ini semata-mata ditujukan untuk **penelitian keamanan pendidikan & etika**.  
-> Jangan menggunakannya untuk kegiatan ilegal.
+### Install via Pip
 
----
-
-## ðŸ“¥ Instalasi
-
-Instal langsung dari GitHub:
-
-```pesta
-pip install "git+https://github.com/NamaPenggunaAnda/wlsbruteforce.git"
+```bash
+pip install "git+https://github.com/YourUsername/wlsbruteforce.git".
 ```
 
----
+### Runing module
 
-## ðŸš€ Mulai Cepat
-
-### 1. Jalankan Interpreter Python
-```pesta
+```bash
+# Start the Python interpreter from any directory
 $ python3
-```
+Python 3.10.6 (...) on linux
+Type "help", "copyright", "credits" or "license" for more information.
 
-### 2. Impor kelas
-```ular piton
-dari wlsbruteforce impor WlsBruteforce
-```
+# 1. Import the class
+>>> from wlsbruteforce import WlsBruteforce
 
-### 3. Inisialisasi generator
-```ular piton
-generator = WlsBruteforce()
-```
+# 2. Initialize the generator (using default character set)
+>>> generator = WlsBruteforce()
 
-### 4. Hasilkan percobaan (panjang 1-2)
-```ular piton
-percobaan = generator.brute(panjang_min=1, panjang_maks=2)
-```
+# 3. Get the attempts (length 1 to 2)
+# NOTE: The number of combinations grows very fast!
+>>> attempts = generator.brute(min_length=1, max_length=2)
 
-### 5. Cetak 10 percobaan pertama
-```ular piton
-untuk i dalam rentang (10):
-    cetak(berikutnya(percobaan), akhir=' ')
-```
+# 4. Print the first 10 attempts
+>>> print("First 10 attempts (Length 1):")
+>>> for i in range(10):
+...     print(next(attempts), end=' ')
+...
+a b c d e f g h i j 
 
-### 6. Tampilkan total perkiraan percobaan
-```ular piton
-cetak(generator.perkiraan_kombinasi_total)
-```
+# 5. Check the total estimation attribute (calculated after calling brute)
+>>> print(f"\n\nTotal estimated attempts for lengths 1-2: {generator.total_combinations_estimate}")
+Total estimated attempts for lengths 1-2: 3906 
+# (62 characters ^ 1 length) + (62 characters ^ 2 length) = 62 + 3844 = 3906
 
-**Perhitungan:**  
-`62^1 + 62^2 = 62 + 3844 = 3906`
-
----
-
-## ðŸ“š Contoh Kode
-
-```ular piton
-dari wlsbruteforce impor WlsBruteforce
-
-generator = WlsBruteforce()
-
-percobaan = generator.brute(panjang_min=1, panjang_maks=3)
-
-untuk i, mencoba menghitung(percobaan):
-    cetak(percobaan)
-
-    jika i == 50: # Berhenti setelah 50 percobaan
-        merusak
-
-cetak("Perkiraan total:", generator.total_combinations_estimate)
-```
-
----
-
-## ðŸ“¦ Struktur Proyek
-
-```
-wlsbruteforce/
-â”‚â”€â”€ wlsbruteforce.py
-â”‚â”€â”€ __init__.py
-â”‚â”€â”€ README.md
-â”‚â”€â”€ LISENSI
-```
-
----
-
-## ðŸ› ï¸ Cara Kerjanya
-
-- Menggunakan `itertools.product()` untuk membuat kombinasi
-- Dibungkus dengan `yield` untuk membuat generator streaming
-- Berjalan sangat cepat dan tanpa menghabiskan memori besar
-
----
-
-## ðŸ“„ Lisensi
-
-Proyek ini dilisensikan di bawah **Lisensi MIT** â€” silakan gunakan, modifikasi, dan distribusikan secara bertanggung jawab.
-
----
-
-## â Dukungan
-
-Jika Anda merasa ini berguna, beri proyek ini **bintang** di GitHub!  
+# Exit Python
+>>> exit()
+$
