@@ -9,9 +9,10 @@ setup(
     long_description_content_type='text/markdown',
     author='marqsec',
     author_email='marqlinux@gmail.com',
-    url='https://github.com/marqsec/wlsbruteforce', 
+    url='https://github.com/marqsec/wlsbruteforce',
     install_requires=[
-        
+        "tqdm>=4.66.0",
+        "requests>=2.0.0",
     ],
     python_requires='>=3.6',
     classifiers=[
