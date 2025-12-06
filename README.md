@@ -12,7 +12,7 @@ A lightweight, portable Python module designed for **educational purposes** to d
 ## ✨ Features & Purpose
 
 * **Generator-Based:** Uses Python's `yield` keyword for memory efficiency. Combinations are generated on-demand, not stored in memory.
-* **Universal Character Set:** Includes all lowercase letters (`a-z`), uppercase letters (`A-Z`), and digits (`0-9`).
+* **Universal Character Set: Includes all lowercase letters (a-z), uppercase letters (A-Z), digits (0-9), and special symbols ($`! @ # $ \% \wedge \& * ( ) - _ + = [ ] \{ \} | \ ; : ' " , . < > / ? \text{\textasciitilde} `$) for maximum password complexity testing.
 * **Cross-Platform:** Works flawlessly on Linux (Kali, Ubuntu, Debian), macOS, Windows, and Termux after `pip` installation.
 
 > ⚠️ **Disclaimer:** This module is strictly intended for **educational and defensive security research**. Use it responsibly and ethically.
