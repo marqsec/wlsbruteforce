@@ -26,9 +26,9 @@ A lightweight, portable Python module designed for **educational purposes** to d
   - Test authentication endpoints safely
   All for research, testing, and learning how password systems respond under controlled conditions.
 
-* **Cross-Platform:** Works flawlessly on Linux (Kali, Ubuntu, Debian), macOS, Windows, and Termux after `pip` installation.
-
-> ⚠️ Disclaimer: This module is strictly intended for educational and defensive security research. Use it responsibly and ethically.
+* **Cross-Platform:** Works flawlessly on Linux (Kali, Ubuntu, Debian), macOS, Windows, and Termux after `pip` installation.*
+ 
+> ⚠️ **Disclaimer:** This module is strictly intended for **educational and defensive security research**. Use it responsibly and ethically.
 
 ## 📥 Installation
 
