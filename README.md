@@ -30,36 +30,46 @@ pip install "git+https://github.com/marqsec/wlsbruteforce.git"
 ### 🎬 Demo: Live Terminal Interaction
 
 ```bash
-# Start the Python interpreter from any directory
-$ python3
-Python 3.10.6 (...) on linux
-Type "help", "copyright", "credits" or "license" for more information.
+from wlsbruteforce import WlsBruteforce
+import string
 
-# 1. Import the class
->>> from wlsbruteforce import WlsBruteforce
+# --- Section 1: Initialization with Custom Charset ---
+# Calling __init__ with a smaller custom charset (only lowercase letters
+# Note: string.ascii_lowercase contains only 'a' through 'z'
+CUSTOM_CHARSET = string.ascii_lowercase
 
-# 2. Initialize the generator (using default character set)
->>> generator = WlsBruteforce()
+print(f"Initializing WlsBruteforce with custom charset ({len(CUSTOM_CHARSET)} characters)...")
+with WlsBruteforce(charset=CUSTOM_CHARSET) as custom_generator:
+    MIN_L = 3
+    MAX_L = 56
+    # --- Section 2: Calling Other Functions (Internal Method) ---
+    # Explicitly calling _calculate_combinations
+    # Although this is an internal method, we can call it for demonstration.
+    # Calculate combinations (length 3 + length 4)
+    # Total = (26^3) + (26^4) = 17,576 + 456,976 = 474,552
+    
+    total_estimated = custom_generator._calculate_combinations(MIN_L, MAX_L)
+    print("-" * 40)
+    print(f"Call: _calculate_combinations({MIN_L}, {MAX_L})")
+    print(f"Estimated Total Combinations: {total_estimated:,}")
+    print("-" * 40)
 
-# 3. Get the attempts (length 1 to 2)
-# NOTE: The number of combinations grows very fast!
->>> attempts = generator.brute(min_length=1, max_length=2)
+    # --- Section 3: Calling the Main 'brute' Function ---
+    # Call the brute method
+    attempts = custom_generator.brute(min_length=MIN_L, max_length=MIN_L) # Only length 3
 
-# 4. Print the first 10 attempts
->>> print("First 10 attempts (Length 1):")
->>> for i in range(10):
-...     print(next(attempts), end=' ')
-...
-a b c d e f g h i j 
+    print(f"Total combinations to be attempted (only length {MIN_L}): {custom_generator.total_combinations_estimate:,}")
+    print("\n✅ Starting Brute Force (First 5 Combinations Only):")
 
-# 5. Check the total estimation attribute (calculated after calling brute)
->>> print(f"\n\nTotal estimated attempts for lengths 1-2: {generator.total_combinations_estimate}")
-Total estimated attempts for lengths 1-2: 3906 
-# (62 characters ^ 1 length) + (62 characters ^ 2 length) = 62 + 3844 = 3906
+    count = 0
+    for password in attempts:
+        if count < 1000:
+            print(f"[{count}] Password: {password}")
+            count += 1
+        else:
+            break
 
-# Exit Python
->>> exit()
-$
+print("\nDone. WlsBruteforce object has exited the 'with' context.")
 ```
 
 ### 🧑‍💻 Contribution & Development
