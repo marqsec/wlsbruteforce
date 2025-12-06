@@ -9,7 +9,7 @@ A lightweight, portable Python module designed for **educational purposes** to d
 
 ---
 
-## âœ¨ Features & Purpose
+## 💫 Features & Purpose
 
 * **Generator-Based:** Uses Python's `yield` keyword for memory efficiency. Combinations are generated on-demand, not stored in memory.
 
@@ -17,8 +17,8 @@ A lightweight, portable Python module designed for **educational purposes** to d
 
 * **Progress Visualization with `tqdm`:**
   Integrates the `tqdm` library to display a real-time progress bar during brute-force attempts.
-  This helps users monitor speed, track attempts, and visually estimate remaining time â€” essential for educational and debugging purposes.
-
+  This helps users monitor speed, track attempts, and visually estimate remaining time — essential for educational and debugging purposes.
+  
 * **HTTP Support with `requests`:**
   Provides optional compatibility with the `requests` module, allowing developers to:
   - Send guessed passwords to an API endpoint
@@ -28,7 +28,7 @@ A lightweight, portable Python module designed for **educational purposes** to d
 
 * **Cross-Platform:** Works flawlessly on Linux (Kali, Ubuntu, Debian), macOS, Windows, and Termux after `pip` installation.
 
-> âš ï¸ Disclaimer: This module is strictly intended for educational and defensive security research. Use it responsibly and ethically.
+> ⚠️ Disclaimer: This module is strictly intended for educational and defensive security research. Use it responsibly and ethically.
 
 ## 📥 Installation
 
