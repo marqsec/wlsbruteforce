@@ -24,7 +24,7 @@ Install this package directly from GitHub using `pip`. This method automatically
 ### Install via Pip
 
 ```bash
-pip install "git+https://github.com/YourUsername/wlsbruteforce.git".
+pip install "git+https://github.com/YourUsername/wlsbruteforce.git"
 ```
 
 ### Runing module
