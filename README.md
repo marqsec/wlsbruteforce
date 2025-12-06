@@ -5,7 +5,7 @@ A lightweight, portable Python module designed for **educational purposes** to d
 
 [![Python Version](https://img.shields.io/badge/Python-3.6%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Stars](https://img.shields.io/github/stars/YourUsername/wlsbruteforce?style=for-the-badge&color=blue)](https://github.com/YourUsername/wlsbruteforce/stargazers)
+[![Stars](https://img.shields.io/github/stars/marqsec/wlsbruteforce?style=for-the-badge&color=blue)](https://github.com/marqsec/wlsbruteforce/stargazers)
 
 ---
 
@@ -59,7 +59,7 @@ with WlsBruteforce(charset=CUSTOM_CHARSET) as custom_generator:
     attempts = custom_generator.brute(min_length=MIN_L, max_length=MIN_L) # Only length 3
 
     print(f"Total combinations to be attempted (only length {MIN_L}): {custom_generator.total_combinations_estimate:,}")
-    print("\n✅ Starting Brute Force (First 5 Combinations Only):")
+    print("\n✅ Starting Brute Force (First 1000 Combinations Only):")
 
     count = 0
     for password in attempts:
