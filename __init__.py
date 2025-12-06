@@ -1,1 +1,1 @@
-from .wlsbruteforce import WlsBruteforce
+from wlsbruteforce import WlsBruteforce
