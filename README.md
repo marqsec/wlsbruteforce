@@ -78,6 +78,7 @@ pip install -e .
 If this tool helped you and you'd like to support its development, you can show your appreciation here:
 
 [![Saweria](https://img.shields.io/badge/Saweria-FE8A00?style=for-the-badge&logo=ko-fi&logoColor=white)](https://saweria.co/marqsec)
+
 Your support truly means a lot and helps the project grow! ⭐
 
 ---
