@@ -2,7 +2,9 @@ import itertools
 import string
 from typing import Generator, Optional
 
-DEFAULT_CHARSET = string.ascii_lowercase + string.ascii_uppercase + string.digits
+SPECIAL_CHARS = "!@#$%^&*()-_+=[]{}\\|;:'\",.<>/?`~ " 
+
+DEFAULT_CHARSET = string.ascii_lowercase + string.ascii_uppercase + string.digits + SPECIAL_CHARS
 
 class WlsBruteforce:
     def __init__(self, charset: Optional[str] = DEFAULT_CHARSET):
