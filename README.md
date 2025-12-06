@@ -24,10 +24,10 @@ Install this package directly from GitHub using `pip`. This method automatically
 ### Install via Pip
 
 ```bash
-pip install "git+https://github.com/YourUsername/wlsbruteforce.git"
+pip install "git+https://github.com/marqsec/wlsbruteforce.git"
 ```
 
-### Runing module
+### 🎬 Demo: Live Terminal Interaction
 
 ```bash
 # Start the Python interpreter from any directory
@@ -60,3 +60,11 @@ Total estimated attempts for lengths 1-2: 3906 
 # Exit Python
 >>> exit()
 $
+```
+
+### 🧑‍💻 Contribution & Development
+
+```bash
+git clone https://github.com/marqsec/wlsbruteforce.git
+cd wlsbruteforce
+pip install -e .
