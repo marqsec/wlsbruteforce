@@ -1,30 +1,26 @@
-# 🌟 MyProject: The Universal Python Module 🚀
+# 💥 WlsBruteforce: Educational Password Generator 🔑
 
-A highly portable and dependency-free custom Python module designed for effortless integration. Install it once, use it everywhere!
+A lightweight, portable Python module designed for **educational purposes** to demonstrate the mechanics of password bruteforcing using Python's built-in `itertools` library and powerful **generators**.
 
-[![Repo Size](https://img.shields.io/github/repo-size/YourUsername/myproject?style=for-the-badge&label=SIZE&color=brightgreen)](https://github.com/YourUsername/myproject)
 [![Python Version](https://img.shields.io/badge/Python-3.6%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/YourUsername/wlsbruteforce?style=for-the-badge&color=blue)](https://github.com/YourUsername/wlsbruteforce/stargazers)
 
 ---
 
-## ✨ Why MyProject?
+## ✨ Features & Purpose
 
-* **🌐 Universal Compatibility:** Works seamlessly across Linux (Kali, Ubuntu, Debian), macOS, Windows, and **Termux**.
-* **🛠️ Zero Setup:** Forget manual `PYTHONPATH` configuration.
-* **📦 Pip-Ready:** Install directly from GitHub with a single command.
+* **Generator-Based:** Uses Python's `yield` keyword for memory efficiency. Combinations are generated on-demand, not stored in memory.
+* **Universal Character Set:** Includes all lowercase letters (`a-z`), uppercase letters (`A-Z`), and digits (`0-9`).
+* **Cross-Platform:** Works flawlessly on Linux (Kali, Ubuntu, Debian), macOS, Windows, and Termux after `pip` installation.
+
+> ⚠️ **Disclaimer:** This module is strictly intended for **educational and defensive security research**. Use it responsibly and ethically.
 
 ## 📥 Installation
 
-Get up and running in one line! We highly recommend using a virtual environment.
+Install this package directly from GitHub using `pip`. This method automatically configures the Python path for system-wide access.
 
-### Prerequisites
-
-Make sure you have **Python 3.6+** and **Git** installed on your system.
-
-### Install via Pip (Recommended)
-
-Run this command in any terminal to install the module directly from this repository:
+### Install via Pip
 
 ```bash
-pip install "git+https://[https://github.com/YourUsername/myproject.git](https://github.com/YourUsername/myproject.git)"
+pip install "git+[https://github.com/YourUsername/wlsbruteforce.git](https://github.com/YourUsername/wlsbruteforce.git)"
