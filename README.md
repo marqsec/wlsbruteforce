@@ -9,14 +9,26 @@ A lightweight, portable Python module designed for **educational purposes** to d
 
 ---
 
-## ✨ Features & Purpose
+## âœ¨ Features & Purpose
 
 * **Generator-Based:** Uses Python's `yield` keyword for memory efficiency. Combinations are generated on-demand, not stored in memory.
-* **Universal Character Set**: Includes all lowercase letters (a–z), uppercase letters (A–Z), digits (0–9), and special symbols (`$` `!` `@` `#` `%` `^` `&` `*` `(` `)` `-` `_` `+` `=` `[` `]` `{` `}` `|` `;` `:` `'` `"` `,` `.` `<` `>` `/` `?` `~`) for maximum password complexity testing.
-* 
+
+* **Universal Character Set:** Includes all lowercase letters (aâ€“z), uppercase letters (Aâ€“Z), digits (0â€“9), and special symbols (`$` `!` `@` `#` `%` `^` `&` `*` `(` `)` `-` `_` `+` `=` `[` `]` `{` `}` `|` `;` `:` `'` `"` `,` `.` `<` `>` `/` `?` `~`) for maximum password complexity testing.
+
+* **Progress Visualization with `tqdm`:**
+  Integrates the `tqdm` library to display a real-time progress bar during brute-force attempts.
+  This helps users monitor speed, track attempts, and visually estimate remaining time â€” essential for educational and debugging purposes.
+
+* **HTTP Support with `requests`:**
+  Provides optional compatibility with the `requests` module, allowing developers to:
+  - Send guessed passwords to an API endpoint
+  - Perform login simulations
+  - Test authentication endpoints safely
+  All for research, testing, and learning how password systems respond under controlled conditions.
+
 * **Cross-Platform:** Works flawlessly on Linux (Kali, Ubuntu, Debian), macOS, Windows, and Termux after `pip` installation.
 
-> ⚠️ **Disclaimer:** This module is strictly intended for **educational and defensive security research**. Use it responsibly and ethically.
+> âš ï¸ Disclaimer: This module is strictly intended for educational and defensive security research. Use it responsibly and ethically.
 
 ## 📥 Installation
 
@@ -32,35 +44,52 @@ pip install "git+https://github.com/marqsec/wlsbruteforce.git"
 
 ```bash
 from wlsbruteforce import WlsBruteforce
+from tqdm import tqdm
+import sys
+import os
 
-# --- INITIALIZATION SECTION ---
-# 1. Creates an instance of the WlsBruteforce class.
-# This sets up the object with the DEFAULT_CHARSET (letters, numbers, symbols).
+# Clear screen depending on OS
+if os.name == "nt":      # Windows
+    os.system("cls")
+else:                    # Linux / macOS
+    os.system("clear")
+
 generator = WlsBruteforce()
+attempts = generator.brute(min_length=1, max_length=8)
 
-# 2. Calls the 'brute' method to get the password generator.
-# This generator will yield all combinations from length 1 up to length 2.
-attempts = generator.brute(min_length=1, max_length=2)
-
-print("✅ Starting Brute Force (Length 1 and 2):")
+password_target = "marq"
+print(f"[•] Starting Brute Force for password: '{password_target}'")
 print("-" * 30)
 
-# --- EXECUTION SECTION ---
-count = 0
-# The loop requests one password from the generator on each iteration.
-for password in attempts:
-    count += 1
-    
-    # Prints the loop counter (count) and the generated password.
-    # The 'count' variable replaces the problematic 'length' variable here.
-    print(f"[{count}] password : {password}")
+# --- Begin try block to ensure cursor is restored ---
+try:
+    # 1. Hide the cursor at the start of the process
+    print('\033[?25l', end='')
 
-    # Limit: Stops the output after 1000 combinations for demonstration purposes.
-    if count >= 1000: 
-        break
+    # Create a progress bar and force output to sys.stderr for better compatibility
+    progress_bar = tqdm(attempts, desc="[>] Trying password", file=sys.stderr, unit=" login")
 
-print("-" * 30)
-print(f"Done (Displayed the first {count} combinations).")
+    for password in progress_bar:
+        # Update postfix to show the password currently being attempted
+        progress_bar.set_postfix_str(f"password: {password}")
+        
+        # If the password is found
+        if password_target == password:
+            progress_bar.close()
+            print(f"\n[✓] Password found: {password}")
+            break
+
+    # If loop finishes without matching password
+    else:
+        progress_bar.close()
+        print(f"\n[✗] Password not found up to the maximum length.")
+
+# --- finally ALWAYS runs ---
+finally:
+    # Restore cursor visibility
+    sys.stderr.write('\033[?25h')
+    sys.stderr.flush()
+
 ```
 
 ### 🧑‍💻 Contribution & Development
