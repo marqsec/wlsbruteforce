@@ -69,3 +69,14 @@ print(f"Done (Displayed the first {count} combinations).")
 git clone https://github.com/marqsec/wlsbruteforce.git
 cd wlsbruteforce
 pip install -e .
+```
+
+---
+
+💛 **Thanks for checking out this project!**
+
+If this tool helped you or you enjoyed using it, feel free to support it by leaving a **⭐ star** on the repository.  
+Your support truly means a lot and helps the project grow!
+
+---
+
