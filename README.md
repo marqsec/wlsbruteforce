@@ -23,4 +23,36 @@ Install this package directly from GitHub using `pip`. This method automatically
 ### Install via Pip
 
 ```bash
-pip install "git+[https://github.com/marqsec/wlsbruteforce.git](https://github.com/marqsec/wlsbruteforce.git)"
+pip install "git+https://github.com/YourUsername/wlsbruteforce.git"
+
+```bash
+# Start the Python interpreter from any directory
+$ python3
+Python 3.10.6 (...) on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+# 1. Import the class
+>>> from wlsbruteforce import WlsBruteforce
+
+# 2. Initialize the generator (using default character set)
+>>> generator = WlsBruteforce()
+
+# 3. Get the attempts (length 1 to 2)
+# NOTE: The number of combinations grows very fast!
+>>> attempts = generator.brute(min_length=1, max_length=2)
+
+# 4. Print the first 10 attempts
+>>> print("First 10 attempts (Length 1):")
+>>> for i in range(10):
+...     print(next(attempts), end=' ')
+...
+a b c d e f g h i j 
+
+# 5. Check the total estimation attribute (calculated after calling brute)
+>>> print(f"\n\nTotal estimated attempts for lengths 1-2: {generator.total_combinations_estimate}")
+Total estimated attempts for lengths 1-2: 3906 
+# (62 characters ^ 1 length) + (62 characters ^ 2 length) = 62 + 3844 = 3906
+
+# Exit Python
+>>> exit()
+$
