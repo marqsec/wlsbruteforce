@@ -75,8 +75,13 @@ pip install -e .
 
 💛 **Thanks for checking out this project!**
 
-If this tool helped you or you enjoyed using it, feel free to support it by leaving a **⭐ star** on the repository.  
-Your support truly means a lot and helps the project grow!
+If this tool helped you and you'd like to support its development, you can show your appreciation here:
+
+[![Saweria](https://img.shields.io/badge/Saweria-FE8A00?style=for-the-badge&logo=ko-fi&logoColor=white)](https://saweria.co/marqsec)
+[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/marqsec)
+
+Your support truly means a lot and helps the project grow! ⭐
 
 ---
+
 
